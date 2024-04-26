@@ -1,0 +1,48 @@
+﻿<Page x:Class="lab4.EventRegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:lab4"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="EventRegistrationPage">
+
+    <Grid Background="#FF4DB1C5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="179*"/>
+            <RowDefinition Height="321*"/>
+        </Grid.RowDefinitions>
+        <Button Click="OnLogOut" Content="Wyloguj" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="69" BorderThickness="2,2,2,2" Background="#FF25B2CE" BorderBrush="#FF319EE0" Foreground="White" FontFamily="Arial" FontSize="12" Margin="10,10,0,0" Grid.ColumnSpan="2"/>
+        <Label Content="Rejestracja na wydarzenie" HorizontalAlignment="Center" VerticalAlignment="Top" Background="{x:Null}" Margin="0,10,0,0" Foreground="White" FontSize="24" FontFamily="Arial Black" Height="40" Width="357"/>
+        <Label Content="Nazwa wydarzenia" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Margin="10,124,0,0" Foreground="White" FontSize="12" FontFamily="Arial" Height="24" Width="147"/>
+        <ComboBox SelectionChanged="OnEventNameChanged" x:Name="eventNameComboBox" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" Width="147" Height="22"/>
+        <Label Content="Agenda wydarzenia" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Margin="162,124,0,0" Foreground="White" FontSize="12" FontFamily="Arial" Height="24" Width="167"/>
+        <TextBox x:Name="eventAgendaTextBox" IsReadOnly="True" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" FontFamily="Arial" FontSize="12" Margin="162,153,0,0" Height="22"/>
+        <Label Content="Typ uczestnictwa" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Margin="337,124,0,0" Foreground="White" FontSize="12" FontFamily="Arial" Height="24" Width="147"/>
+        <ComboBox x:Name="participationTypeComboBox" HorizontalAlignment="Left" Margin="337,153,0,0" VerticalAlignment="Top" Width="147" Height="22">
+            <ComboBoxItem>Słuchacz</ComboBoxItem>
+            <ComboBoxItem>Autor</ComboBoxItem>
+            <ComboBoxItem>Sponsor</ComboBoxItem>
+            <ComboBoxItem>Organizator</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Wyżywienie" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Margin="490,124,0,0" Foreground="White" FontSize="12" FontFamily="Arial" Height="24" Width="147"/>
+        <ComboBox x:Name="foodTypeComboBox" HorizontalAlignment="Left" Margin="490,153,0,0" VerticalAlignment="Top" Width="147" Height="22">
+            <ComboBoxItem>Bez preferencji</ComboBoxItem>
+            <ComboBoxItem>Wegetariańskie</ComboBoxItem>
+            <ComboBoxItem>Bez glutenu</ComboBoxItem>
+        </ComboBox>
+        <Button Click="OnRegisterOnEvent" Content="Zapisz się na wydarzenie" HorizontalAlignment="Center" Height="52" VerticalAlignment="Top" Width="279" BorderThickness="2,2,2,2" Background="#FF25B2CE" BorderBrush="#FF319EE0" Foreground="White" FontFamily="Arial" FontSize="16" Margin="0,41,0,0" Grid.Row="1"/>
+        <Label Content="Data" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Margin="643,124,0,0" Foreground="White" FontSize="12" FontFamily="Arial" Height="24" Width="147"/>
+        <DatePicker x:Name="eventDatePicker" HorizontalAlignment="Left" Margin="643,152,0,0" VerticalAlignment="Top" Width="147" Height="24"/>
+
+        <Popup x:Name="popup" Placement="Center" PlacementRectangle="{Binding ElementName=window}">
+            <Border BorderBrush="Red" BorderThickness="1" Background="White">
+                <StackPanel Margin="10">
+                    <Label x:Name="popupText" FontSize="16" FontFamily="Arial"></Label>
+                    <Button Click="OnClosePopup" Content="Zamknij" BorderThickness="2,2,2,2" Background="#FF25B2CE" BorderBrush="#FF319EE0" Foreground="White" FontFamily="Arial Black" FontSize="16"/>
+                </StackPanel>
+            </Border>
+        </Popup>
+    </Grid>
+</Page>
